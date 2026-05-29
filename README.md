@@ -1,97 +1,179 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ⚽ GoalPulse
 
-# Getting Started
+> Live football scores, news, and standings — all in one place.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+GoalPulse is a cross-platform mobile app built with **React Native CLI**, designed to keep football fans updated with live scores, breaking news, and league standings across the world's top competitions.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📱 Screenshots
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+> Coming soon — add your simulator/emulator screenshots here.
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## ✨ Features
+
+- **Live Scores** — Real-time match scores with live minute indicator, grouped by competition
+- **Football News** — Latest articles filtered by league
+- **Standings** — Full league tables with form guide, goal difference, and zone indicators
+- **Favorites** — Follow your teams and get personalized news
+- **Bilingual** — English and Spanish support *(in progress)*
+- **Dark theme** — Built for night-mode football watching
+
+### Leagues covered
+- 🏆 UEFA Champions League
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League
+- 🇪🇸 La Liga
+- 🇩🇪 Bundesliga
+- 🇮🇹 Serie A
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | React Native CLI (0.76) |
+| Language | TypeScript |
+| Navigation | React Navigation v6 (Stack + Bottom Tabs) |
+| State | Zustand |
+| Data fetching | TanStack Query (React Query v5) |
+| Backend | Supabase *(coming soon)* |
+| HTTP | Axios |
+| Ads | Google AdMob *(planned)* |
+
+---
+
+## 📁 Project Structure
+
+```
+GoalPulse/
+├── App.tsx                          # Entry point
+└── src/
+    ├── navigation/
+    │   ├── RootNavigator.tsx        # Auth gate
+    │   ├── AuthStack.tsx            # Login / Register flow
+    │   └── MainTabs.tsx             # Bottom tab navigator
+    ├── screens/
+    │   ├── auth/
+    │   │   ├── LoginScreen.tsx
+    │   │   └── RegisterScreen.tsx
+    │   └── tabs/
+    │       ├── NewsScreen.tsx
+    │       ├── ScoresScreen.tsx
+    │       ├── StandingsScreen.tsx
+    │       └── FavoritesScreen.tsx
+    ├── components/
+    │   ├── ui/
+    │   │   └── Button.tsx
+    │   ├── NewsCard.tsx
+    │   ├── MatchCard.tsx
+    │   └── StandingRow.tsx
+    ├── store/
+    │   └── authStore.ts             # Zustand auth store
+    ├── data/
+    │   ├── mockNews.ts
+    │   ├── mockMatches.ts
+    │   └── mockStandings.ts
+    └── constants/
+        ├── colors.ts
+        └── types.ts
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🚀 Getting Started
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+- Node.js 18+
+- React Native CLI
+- Xcode (iOS) + CocoaPods
+- Android Studio (Android)
 
-# OR using Yarn
-yarn android
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/goalpulse.git
+cd goalpulse
+
+# Install JS dependencies
+npm install
+
+# Install React Native CLI (required for autolink)
+npm install -D @react-native-community/cli
+
+# iOS — install native pods
+cd ios && pod install && cd ..
 ```
 
-### iOS
+### Running the app
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+```bash
+# Start Metro bundler
+npx react-native start
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+# iOS (new terminal)
+npx react-native run-ios
 
-```sh
-bundle install
+# Android (new terminal)
+npx react-native run-android
 ```
 
-Then, and every time you update your native dependencies, run:
+### Dev credentials (mock mode)
 
-```sh
-bundle exec pod install
+While Supabase is not yet connected, log in with any email and password `123456`.
+
+---
+
+## 🗺️ Roadmap
+
+### v1.0 — MVP *(in progress)*
+- [x] Project structure + navigation
+- [x] Auth flow with mock data (login / register)
+- [x] News feed with league filter
+- [x] Live scores screen
+- [x] League standings with form guide
+- [x] Favorites / profile screen
+- [ ] Connect Supabase Auth
+- [ ] Connect API-Football (live scores + stats)
+- [ ] Connect NewsAPI (real articles)
+- [ ] Push notifications for live matches
+
+### v1.1 — Polish
+- [ ] Match detail screen
+- [ ] Article reader
+- [ ] Search
+- [ ] Onboarding (team selection on first launch)
+- [ ] i18n ES / EN
+
+### v2.0 — Monetization
+- [ ] Google AdMob integration
+- [ ] GoalPulse Pro (ad-free tier)
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file at the root (never commit this):
+
+```env
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+API_FOOTBALL_KEY=your_api_football_key
+NEWS_API_KEY=your_newsapi_key
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## 🤝 Contributing
 
-# OR using Yarn
-yarn ios
-```
+This project is currently in active development. Feel free to open issues or submit PRs.
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 📄 License
 
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+MIT © GoalPulse
