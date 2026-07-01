@@ -75,7 +75,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   register: async (email, name, password) => {
     set({ isLoading: true, error: null })
-
     const { data, error } = await supabase.auth.signUp({ email, password })
 
     if (error || !data.user) {
@@ -83,7 +82,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return false
     }
 
-    // Crear perfil en la tabla profiles
     const { error: profileError } = await supabase
       .from('profiles')
       .insert({
@@ -92,6 +90,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         name,
         favorite_team_ids: [],
       })
+
+    console.log('Profile error:', JSON.stringify(profileError))
 
     if (profileError) {
       set({ isLoading: false, error: profileError.message })
