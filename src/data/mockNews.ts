@@ -2,6 +2,7 @@ import { NewsArticle } from '../constants/types'
 
 export const mockLeagues = [
   { id: 'all', name: 'All', shortName: 'All', logo: '⚽', country: '' },
+  { id: 'wc', name: 'World Cup', shortName: 'WC', logo: '🌍', country: 'World' },
   { id: 'ucl', name: 'Champions League', shortName: 'UCL', logo: '🏆', country: 'Europe' },
   { id: 'pl', name: 'Premier League', shortName: 'PL', logo: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', country: 'England' },
   { id: 'laliga', name: 'La Liga', shortName: 'LaLiga', logo: '🇪🇸', country: 'Spain' },
