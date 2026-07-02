@@ -138,7 +138,7 @@ While Supabase is not yet connected, log in with any email and password `123456`
 - [x] League standings with form guide
 - [x] Favorites / profile screen
 - [x] Connect Supabase Auth
-- [ ] Connect API-Football (live scores + stats)
+- [x] Connect API-Football (live scores + stats)
 - [ ] Connect NewsAPI (real articles)
 - [ ] Push notifications for live matches
 
