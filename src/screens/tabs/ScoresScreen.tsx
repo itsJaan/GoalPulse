@@ -44,6 +44,7 @@ function mapApiMatchToMatch(m: any): Match {
       shortName: m.homeTeam?.shortName ?? m.homeTeam?.tla ?? '',
       logo: m.homeTeam?.crest ?? '',
       color: '#FFFFFF',
+      tla: m.homeTeam?.tla ?? '',
     },
     awayTeam: {
       id: String(m.awayTeam?.id),
@@ -51,6 +52,8 @@ function mapApiMatchToMatch(m: any): Match {
       shortName: m.awayTeam?.shortName ?? m.awayTeam?.tla ?? '',
       logo: m.awayTeam?.crest ?? '',
       color: '#FFFFFF',
+      tla: m.awayTeam?.tla ?? '',
+
     },
     homeScore: m.score?.fullTime?.home ?? m.score?.halfTime?.home ?? null,
     awayScore: m.score?.fullTime?.away ?? m.score?.halfTime?.away ?? null,
@@ -328,4 +331,5 @@ const styles = StyleSheet.create({
     color: Colors.text.secondary,
     fontSize: 15,
   },
+  
 });

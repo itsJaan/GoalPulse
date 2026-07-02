@@ -25,6 +25,7 @@ export const MatchCard = ({ match, onPress }: { match: Match; onPress?: () => vo
   const isHT = match.status === 'HT'
   const isFT = match.status === 'FT'
   const isScheduled = match.status === 'SCHEDULED'
+  console.log('Away tla:', match.awayTeam.tla, 'Home tla:', match.homeTeam.tla)
 
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.85} style={styles.card}>
@@ -50,6 +51,7 @@ export const MatchCard = ({ match, onPress }: { match: Match; onPress?: () => vo
             uri={match.homeTeam.logo}
             size={40}
             fallback={match.homeTeam.shortName?.slice(0, 3).toUpperCase()}
+            tla={match.homeTeam.tla}
           />
           <Text style={styles.teamName} numberOfLines={1}>
             {match.homeTeam.shortName}
@@ -66,10 +68,11 @@ export const MatchCard = ({ match, onPress }: { match: Match; onPress?: () => vo
         </View>
 
         <View style={[styles.teamBlock, styles.teamRight]}>
-          <TeamLogo
+           <TeamLogo
             uri={match.awayTeam.logo}
             size={40}
             fallback={match.awayTeam.shortName?.slice(0, 3).toUpperCase()}
+            tla={match.awayTeam.tla}
           />
           <Text style={styles.teamName} numberOfLines={1}>
             {match.awayTeam.shortName}

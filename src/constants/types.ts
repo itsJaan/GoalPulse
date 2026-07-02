@@ -24,6 +24,7 @@ export interface Team {
   shortName: string
   logo: string
   color: string
+  tla?: string
 }
 
 export interface Match {
@@ -56,7 +57,6 @@ export interface StandingEntry {
   zone?: 'champion' | 'europa' | 'conference' | 'relegation'
 }
 
-// React Navigation types
 export type AuthStackParamList = {
   Login: undefined
   Register: undefined

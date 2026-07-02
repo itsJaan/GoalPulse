@@ -1,18 +1,10 @@
 import { footballApi } from '../lib/football'
 
-export const COMPETITION_IDS = {
-  ucl: 'CL',
-  pl: 'PL',
-  laliga: 'PD',
-  bl: 'BL1',
-  sa: 'SA',
-  wc: 'WC',
-}
-
 export async function getMatchesByDate(date: string) {
   const { data } = await footballApi.get('/matches', {
     params: { date },
   })
+  console.log({data})
   return data.matches ?? []
 }
 
@@ -21,8 +13,6 @@ export const getStandings = async (competitionId: string) => {
   const { data } = await footballApi.get(`/competitions/${competitionId}/standings`, {
     params: { season },
   })
-  console.log('Standings season:', season, 'competition:', competitionId)
-  console.log('First entry:', JSON.stringify(data.standings?.[0]?.table?.[0]))
   return data.standings?.[0]?.table ?? []
 }
 
